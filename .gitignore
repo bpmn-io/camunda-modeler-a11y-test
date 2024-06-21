@@ -1,0 +1,13 @@
+camunda-docs-manual/
+camunda-docs-static/
+camunda-docs/
+lib/tmp/
+node_modules/
+dist/
+coverage/
+.idea
+*.iml
+.DS_Store
+.nyc_output
+.env
+*.bundled.js

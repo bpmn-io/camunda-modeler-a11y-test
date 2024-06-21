@@ -1,0 +1,43 @@
+{
+  "name": "@camunda/camunda-modeler-a11y-test",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Test accessibility of the Camunda Modeler",
+  "scripts": {
+    "pull:modeler": "node lib/helper/setupModeler",
+    "test": "mocha --timeout 5000 --recursive test/spec",
+    "test:a11y": "mocha --timeout 5000 --recursive test/a11y",
+    "lint": "eslint .",
+    "pull": "run-p pull:*",
+    "start": "run-s test:a11y",
+    "all": "run-s lint test",
+    "build": "esbuild lib/browser/verify.js --bundle --outfile=lib/browser/verify.bundled.js",
+    "prepare": "run-p build pull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camunda/camunda-modeler-a11y-test.git"
+  },
+  "author": {
+    "name": "Maciej Barelkowski",
+    "url": "https://github.com/barmac"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camunda/camunda-modeler-a11y-test/issues"
+  },
+  "homepage": "https://github.com/camunda/camunda-modeler-a11y-test",
+  "dependencies": {
+    "@bpmn-io/a11y": "^0.1.0",
+    "chai": "^4.2.0",
+    "decompress": "^4.2.1",
+    "esbuild": "^0.21.5",
+    "eslint": "^8.0.0",
+    "eslint-plugin-bpmn-io": "^1.0.0",
+    "fkill": "^7.1.0",
+    "mocha": "^10.0.0",
+    "node-fetch": "^2.7.0",
+    "npm-run-all": "^4.1.5",
+    "playwright-core": "^1.38.0"
+  }
+}
