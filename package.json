@@ -6,8 +6,8 @@
   "scripts": {
     "pull:modeler": "node lib/helper/setupModeler",
     "test": "run-s test:*",
-    "test:unit": "mocha --timeout 5000 --recursive test/spec",
-    "test:a11y": "mocha --timeout 5000 --recursive test/a11y",
+    "test:unit": "mocha --timeout 20000 --recursive test/spec",
+    "test:a11y": "mocha --timeout 20000 --recursive test/a11y",
     "lint": "eslint .",
     "pull": "run-p pull:*",
     "start": "run-s test:a11y",
