@@ -6,9 +6,7 @@ const _createModeler = require('../lib/helper/createModeler');
 
 let MODELER = null;
 
-!process.env.NO_CLEANUP && afterEach(cleanUp);
-
-async function cleanUp() {
+async function cleanUpModeler() {
   if (MODELER) {
     await MODELER.close();
     MODELER = null;
@@ -16,7 +14,7 @@ async function cleanUp() {
 }
 
 async function createModeler(...args) {
-  await cleanUp();
+  await cleanUpModeler();
   MODELER = await _createModeler(...args);
 
   return MODELER;
@@ -45,6 +43,7 @@ async function expectToBeAccessible(modeler) {
 }
 
 module.exports = {
+  cleanUpModeler,
   expectToBeAccessible,
   createModeler
 };
