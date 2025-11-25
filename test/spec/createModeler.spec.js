@@ -12,14 +12,14 @@ describe('lib/helper/createModeler - initialization', function() {
 
   let modeler;
 
-  afterEach(async () => {
+  afterEach(async function() {
     await modeler.close();
 
     fs.rmSync(WORKSPACE_DIR, { recursive: true });
   });
 
 
-  it('should create a Modeler instance', async () => {
+  it('should create a Modeler instance', async function() {
 
     // when
     modeler = await createModeler();
@@ -29,7 +29,7 @@ describe('lib/helper/createModeler - initialization', function() {
   });
 
 
-  it('should prepare a custom diagram for the Modeler instance', async () => {
+  it('should prepare a custom diagram for the Modeler instance', async function() {
 
     // given
     const diagramPaths = [ path.join(__dirname, '../fixtures/bpmn/diagram_1.bpmn') ];
@@ -43,7 +43,7 @@ describe('lib/helper/createModeler - initialization', function() {
   });
 
 
-  it('should open a Modeler instance with custom configuration', async () => {
+  it('should open a Modeler instance with custom configuration', async function() {
 
     // given
     const diagramPaths = [ path.join(__dirname, '../fixtures/bpmn/diagram_1.bpmn') ],
@@ -60,7 +60,7 @@ describe('lib/helper/createModeler - initialization', function() {
   });
 
 
-  it('should open a Modeler instance with custom displayVersion', async () => {
+  it('should open a Modeler instance with custom displayVersion', async function() {
 
     // given
     const displayVersion = 'foobar';
@@ -81,7 +81,7 @@ describe('lib/helper/createModeler - initialization', function() {
 
 describe('lib/helper/createModeler - teardown', function() {
 
-  it('should close a Modeler instance', async () => {
+  it('should close a Modeler instance', async function() {
 
     // when
     const modeler = await createModeler();
@@ -93,7 +93,7 @@ describe('lib/helper/createModeler - teardown', function() {
   });
 
 
-  it('should clear tmp data when Modeler is closed', async () => {
+  it('should clear tmp data when Modeler is closed', async function() {
 
     // given
     const diagramPaths = [ path.join(__dirname, '../fixtures/bpmn/diagram_1.bpmn') ],
